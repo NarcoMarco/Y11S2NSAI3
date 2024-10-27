@@ -1,0 +1,154 @@
+name: network-ctf
+topology:
+  nodes:
+    r1:
+      kind: linux
+      labels:
+        graph-layer: 1
+        graph-icon: router
+      image: frrouting/frr:latest
+      binds:
+        - ./scripts:/scripts
+      exec:
+        - vtysh -f /scripts/r1.sh
+
+    server-switch:
+      kind: linux 
+      labels:
+        graph-layer: 1   # Assign the switch layer clearly
+        graph-icon: switch
+      image: alpine
+      exec: 
+        - apk update
+        - apk add bash openvswitch
+        - mkdir -p /var/run/openvswitch  # Ensure the directory for OVS sockets and PID exists
+        - mkdir -p /etc/openvswitch      # Ensure the directory for OVS configuration files exists
+        - ovsdb-tool create /etc/openvswitch/conf.db /usr/share/openvswitch/vswitch.ovsschema
+        - ovsdb-server --remote=punix:/var/run/openvswitch/db.sock --remote=db:Open_vSwitch,Open_vSwitch,manager_options --pidfile --detach
+        - ovs-vswitchd --pidfile --detach
+        - ovs-vsctl add-br br0           # Add OVS bridge br0
+        - ovs-vsctl add-port br0 eth1    # Add eth1 to the bridge - r1
+        - ovs-vsctl add-port br0 eth2    # Add eth2 to the bridge - quickchat
+        - ovs-vsctl add-port br0 eth3    # Add eth3 to the bridge - webserver
+
+    admin-switch:
+      kind: linux 
+      labels:
+        graph-layer: 1   # Assign the switch layer clearly
+        graph-icon: switch
+      image: alpine
+      exec: 
+        - apk update
+        - apk add bash openvswitch
+        - mkdir -p /var/run/openvswitch  # Ensure the directory for OVS sockets and PID exists
+        - mkdir -p /etc/openvswitch      # Ensure the directory for OVS configuration files exists
+        - ovsdb-tool create /etc/openvswitch/conf.db /usr/share/openvswitch/vswitch.ovsschema
+        - ovsdb-server --remote=punix:/var/run/openvswitch/db.sock --remote=db:Open_vSwitch,Open_vSwitch,manager_options --pidfile --detach
+        - ovs-vswitchd --pidfile --detach
+        - ovs-vsctl add-br br0           # Add OVS bridge br0
+        - ovs-vsctl add-port br0 eth1    # Add eth1 to the bridge - r1
+        - ovs-vsctl add-port br0 eth2    # Add eth2 to the bridge - qc-admin1
+        - ovs-vsctl add-port br0 eth3    # Add eth3 to the bridge - qc-admin2
+
+    client-switch:
+      kind: linux 
+      labels:
+        graph-layer: 1   # Assign the switch layer clearly
+        graph-icon: switch
+      image: alpine
+      exec: 
+        - apk update
+        - apk add bash openvswitch
+        - mkdir -p /var/run/openvswitch  # Ensure the directory for OVS sockets and PID exists
+        - mkdir -p /etc/openvswitch      # Ensure the directory for OVS configuration files exists
+        - ovsdb-tool create /etc/openvswitch/conf.db /usr/share/openvswitch/vswitch.ovsschema
+        - ovsdb-server --remote=punix:/var/run/openvswitch/db.sock --remote=db:Open_vSwitch,Open_vSwitch,manager_options --pidfile --detach
+        - ovs-vswitchd --pidfile --detach
+        - ovs-vsctl add-br br0           # Add OVS bridge br0
+        - ovs-vsctl add-port br0 eth1    # Add eth1 to the bridge - router
+        - ovs-vsctl add-port br0 eth2    # Add eth2 to the bridge - qc-client1
+        - ovs-vsctl add-port br0 eth3    # Add eth3 to the bridge - qc-client2
+        - ovs-vsctl add-port br0 eth4    # Add eth4 to the bridge - attack-box
+    
+    attack-box:
+      kind: linux
+      labels:
+        graph-layer: 2
+        graph-icon: host
+      image: alpine:latest
+      ports:
+        - "2222:22/tcp"
+      binds:
+        - ./scripts:/scripts
+      exec:
+        - sh /scripts/attack-box.sh
+
+    webserver:
+      kind: linux
+      labels:
+        graph-layer: 2
+        graph-icon: server
+      image: alpine:latest
+      binds:
+        - ./scripts:/scripts
+
+    quickchat:
+      kind: linux
+      labels:
+        graph-layer: 2
+        graph-icon: server
+      image: alpine:latest
+      binds:
+        - ./scripts:/scripts
+
+    qc-admin1:
+      kind: linux
+      labels:
+        graph-layer: 2
+        graph-icon: host
+      image: alpine:latest
+      binds:
+        - ./scripts:/scripts
+
+    qc-admin2:
+      kind: linux
+      labels:
+        graph-layer: 2
+        graph-icon: host
+      image: alpine:latest
+      binds:
+        - ./scripts:/scripts
+
+    qc-client1:
+      kind: linux
+      labels:
+        graph-layer: 2
+        graph-icon: host
+      image: alpine:latest
+      binds:
+        - ./scripts:/scripts
+
+    qc-client2:
+      kind: linux
+      labels:
+        graph-layer: 2
+        graph-icon: host
+      image: alpine:latest
+      binds:
+        - ./scripts:/scripts
+        
+  links:
+    # Connect router to switches
+    - endpoints: ['r1:eth1', 'server-switch:eth1']
+    - endpoints: ['r1:eth2', 'admin-switch:eth1']
+    - endpoints: ['r1:eth3', 'client-switch:eth1']
+    # Connect server switch to servers
+    - endpoints: ['server-switch:eth2', 'quickchat:eth1']
+    - endpoints: ['server-switch:eth3', 'webserver:eth1']
+    # Connect admin switch to admins
+    - endpoints: ['admin-switch:eth2', 'qc-admin1:eth1']
+    - endpoints: ['admin-switch:eth3', 'qc-admin2:eth1']
+    # Connect clients and attacker to client switch
+    - endpoints: ['client-switch:eth2', 'qc-client1:eth1']
+    - endpoints: ['client-switch:eth3', 'qc-client2:eth1']
+    - endpoints: ['client-switch:eth4', 'attack-box:eth1']
