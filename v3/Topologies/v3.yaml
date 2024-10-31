@@ -98,6 +98,8 @@ topology:
         graph-layer: 2
         graph-icon: server
       image: ubuntu:latest
+      exec:
+        - sh /scripts/quickchat.sh
       binds:
         - ./scripts:/scripts
 

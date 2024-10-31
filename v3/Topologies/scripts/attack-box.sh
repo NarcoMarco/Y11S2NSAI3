@@ -4,7 +4,7 @@
 apk update
 
 # Install packages
-apk add iproute2 openssh openrc bash termshark nmap
+apk add iproute2 openssh openrc bash termshark nmap busybox-extras
 
 # Configure network
 ip addr add 192.168.0.47/24 dev eth1
