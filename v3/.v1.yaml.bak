@@ -1,0 +1,63 @@
+name: network-ctf
+topology:
+  nodes:
+    r1:
+      kind: linux
+      image: frrouting/frr:latest
+      binds:
+        - ./scripts:/scripts
+      exec:
+        - vtysh -f /scripts/r1.sh
+    
+    attack-box:
+      kind: linux
+      image: alpine:latest
+      ports:
+        - "2222:22/tcp"
+      binds:
+        - ./scripts:/scripts
+
+    webserver:
+      kind: linux
+      image: alpine:latest
+      binds:
+        - ./scripts:/scripts
+
+    quickchat:
+      kind: linux
+      image: alpine:latest
+      binds:
+        - ./scripts:/scripts
+
+    qc-admin1:
+      kind: linux
+      image: alpine:latest
+      binds:
+        - ./scripts:/scripts
+
+    qc-admin2:
+      kind: linux
+      image: alpine:latest
+      binds:
+        - ./scripts:/scripts
+
+    qc-client1:
+      kind: linux
+      image: alpine:latest
+      binds:
+        - ./scripts:/scripts
+
+    qc-client2:
+      kind: linux
+      image: alpine:latest
+      binds:
+        - ./scripts:/scripts
+        
+  links:
+    - endpoints: ['r1:eth1', 'quickchat:eth1']
+    - endpoints: ['r1:eth2', 'webserver:eth1']
+    - endpoints: ['r1:eth3', 'qc-admin1:eth1']
+    - endpoints: ['r1:eth4', 'qc-admin2:eth1']
+    - endpoints: ['r1:eth5', 'qc-client1:eth1']
+    - endpoints: ['r1:eth6', 'qc-client2:eth1']
+    - endpoints: ['r1:eth7', 'attack-box:eth1']
