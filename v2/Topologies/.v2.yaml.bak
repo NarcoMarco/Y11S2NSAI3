@@ -97,7 +97,7 @@ topology:
       labels:
         graph-layer: 2
         graph-icon: server
-      image: ubuntu:latest
+      image: alpine:latest
       binds:
         - ./scripts:/scripts
 
