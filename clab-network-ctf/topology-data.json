@@ -6,74 +6,42 @@
       "prefix": "clab",
       "mgmt": {
         "network": "clab",
-        "bridge": "br-2730b2367a37",
+        "bridge": "br-b781bcffe3e1",
         "ipv4-subnet": "172.20.20.0/24",
         "ipv4-gw": "172.20.20.1",
-        "ipv6-subnet": "2001:172:20:20::/64",
-        "ipv6-gw": "2001:172:20:20::1",
+        "ipv6-subnet": "3fff:172:20:20::/64",
+        "ipv6-gw": "3fff:172:20:20::1",
         "mtu": 1500,
         "external-access": true
       }
     }
   },
   "nodes": {
-    "admin-switch": {
-      "index": "0",
-      "shortname": "admin-switch",
-      "longname": "clab-network-ctf-admin-switch",
-      "fqdn": "admin-switch.network-ctf.io",
-      "group": "",
-      "labdir": "/home/t0342978/Y11S2NSAI3/clab-network-ctf/admin-switch",
-      "kind": "linux",
-      "image": "alpine",
-      "mgmt-net": "",
-      "mgmt-intf": "",
-      "mgmt-ipv4-address": "172.20.20.8",
-      "mgmt-ipv4-prefix-length": 24,
-      "mgmt-ipv6-address": "2001:172:20:20::8",
-      "mgmt-ipv6-prefix-length": 64,
-      "mac-address": "",
-      "labels": {
-        "clab-mgmt-net-bridge": "br-2730b2367a37",
-        "clab-node-group": "",
-        "clab-node-kind": "linux",
-        "clab-node-lab-dir": "/home/t0342978/Y11S2NSAI3/clab-network-ctf/admin-switch",
-        "clab-node-name": "admin-switch",
-        "clab-node-type": "",
-        "clab-owner": "t0342978",
-        "clab-topo-file": "/home/t0342978/Y11S2NSAI3/v3/Topologies/v3.yaml",
-        "containerlab": "network-ctf",
-        "graph-icon": "switch",
-        "graph-layer": "1"
-      },
-      "port-bindings": [
-      ]
-    },
     "attack-box": {
-      "index": "1",
+      "index": "0",
       "shortname": "attack-box",
       "longname": "clab-network-ctf-attack-box",
       "fqdn": "attack-box.network-ctf.io",
       "group": "",
-      "labdir": "/home/t0342978/Y11S2NSAI3/clab-network-ctf/attack-box",
+      "labdir": "/home/marco/git-repos-and-packages/mine/Y11S2NSAI3/clab-network-ctf/attack-box",
       "kind": "linux",
       "image": "alpine:latest",
       "mgmt-net": "",
       "mgmt-intf": "",
-      "mgmt-ipv4-address": "172.20.20.3",
+      "mgmt-ipv4-address": "172.20.20.4",
       "mgmt-ipv4-prefix-length": 24,
-      "mgmt-ipv6-address": "2001:172:20:20::3",
+      "mgmt-ipv6-address": "3fff:172:20:20::4",
       "mgmt-ipv6-prefix-length": 64,
       "mac-address": "",
       "labels": {
-        "clab-mgmt-net-bridge": "br-2730b2367a37",
+        "clab-mgmt-net-bridge": "br-b781bcffe3e1",
         "clab-node-group": "",
         "clab-node-kind": "linux",
-        "clab-node-lab-dir": "/home/t0342978/Y11S2NSAI3/clab-network-ctf/attack-box",
+        "clab-node-lab-dir": "/home/marco/git-repos-and-packages/mine/Y11S2NSAI3/clab-network-ctf/attack-box",
         "clab-node-name": "attack-box",
         "clab-node-type": "",
-        "clab-owner": "t0342978",
-        "clab-topo-file": "/home/t0342978/Y11S2NSAI3/v3/Topologies/v3.yaml",
+        "clab-owner": "marco",
+        "clab-topo-file": "/home/marco/git-repos-and-packages/mine/Y11S2NSAI3/v5/Topologies/v5.yaml",
         "containerlab": "network-ctf",
         "graph-icon": "host",
         "graph-layer": "2"
@@ -93,63 +61,31 @@
         }
       ]
     },
-    "client-switch": {
-      "index": "2",
-      "shortname": "client-switch",
-      "longname": "clab-network-ctf-client-switch",
-      "fqdn": "client-switch.network-ctf.io",
-      "group": "",
-      "labdir": "/home/t0342978/Y11S2NSAI3/clab-network-ctf/client-switch",
-      "kind": "linux",
-      "image": "alpine",
-      "mgmt-net": "",
-      "mgmt-intf": "",
-      "mgmt-ipv4-address": "172.20.20.10",
-      "mgmt-ipv4-prefix-length": 24,
-      "mgmt-ipv6-address": "2001:172:20:20::a",
-      "mgmt-ipv6-prefix-length": 64,
-      "mac-address": "",
-      "labels": {
-        "clab-mgmt-net-bridge": "br-2730b2367a37",
-        "clab-node-group": "",
-        "clab-node-kind": "linux",
-        "clab-node-lab-dir": "/home/t0342978/Y11S2NSAI3/clab-network-ctf/client-switch",
-        "clab-node-name": "client-switch",
-        "clab-node-type": "",
-        "clab-owner": "t0342978",
-        "clab-topo-file": "/home/t0342978/Y11S2NSAI3/v3/Topologies/v3.yaml",
-        "containerlab": "network-ctf",
-        "graph-icon": "switch",
-        "graph-layer": "1"
-      },
-      "port-bindings": [
-      ]
-    },
     "qc-admin1": {
-      "index": "3",
+      "index": "1",
       "shortname": "qc-admin1",
       "longname": "clab-network-ctf-qc-admin1",
       "fqdn": "qc-admin1.network-ctf.io",
       "group": "",
-      "labdir": "/home/t0342978/Y11S2NSAI3/clab-network-ctf/qc-admin1",
+      "labdir": "/home/marco/git-repos-and-packages/mine/Y11S2NSAI3/clab-network-ctf/qc-admin1",
       "kind": "linux",
       "image": "alpine:latest",
       "mgmt-net": "",
       "mgmt-intf": "",
-      "mgmt-ipv4-address": "172.20.20.11",
+      "mgmt-ipv4-address": "172.20.20.8",
       "mgmt-ipv4-prefix-length": 24,
-      "mgmt-ipv6-address": "2001:172:20:20::b",
+      "mgmt-ipv6-address": "3fff:172:20:20::8",
       "mgmt-ipv6-prefix-length": 64,
       "mac-address": "",
       "labels": {
-        "clab-mgmt-net-bridge": "br-2730b2367a37",
+        "clab-mgmt-net-bridge": "br-b781bcffe3e1",
         "clab-node-group": "",
         "clab-node-kind": "linux",
-        "clab-node-lab-dir": "/home/t0342978/Y11S2NSAI3/clab-network-ctf/qc-admin1",
+        "clab-node-lab-dir": "/home/marco/git-repos-and-packages/mine/Y11S2NSAI3/clab-network-ctf/qc-admin1",
         "clab-node-name": "qc-admin1",
         "clab-node-type": "",
-        "clab-owner": "t0342978",
-        "clab-topo-file": "/home/t0342978/Y11S2NSAI3/v3/Topologies/v3.yaml",
+        "clab-owner": "marco",
+        "clab-topo-file": "/home/marco/git-repos-and-packages/mine/Y11S2NSAI3/v5/Topologies/v5.yaml",
         "containerlab": "network-ctf",
         "graph-icon": "host",
         "graph-layer": "2"
@@ -158,30 +94,30 @@
       ]
     },
     "qc-admin2": {
-      "index": "4",
+      "index": "2",
       "shortname": "qc-admin2",
       "longname": "clab-network-ctf-qc-admin2",
       "fqdn": "qc-admin2.network-ctf.io",
       "group": "",
-      "labdir": "/home/t0342978/Y11S2NSAI3/clab-network-ctf/qc-admin2",
+      "labdir": "/home/marco/git-repos-and-packages/mine/Y11S2NSAI3/clab-network-ctf/qc-admin2",
       "kind": "linux",
       "image": "alpine:latest",
       "mgmt-net": "",
       "mgmt-intf": "",
-      "mgmt-ipv4-address": "172.20.20.12",
+      "mgmt-ipv4-address": "172.20.20.6",
       "mgmt-ipv4-prefix-length": 24,
-      "mgmt-ipv6-address": "2001:172:20:20::c",
+      "mgmt-ipv6-address": "3fff:172:20:20::6",
       "mgmt-ipv6-prefix-length": 64,
       "mac-address": "",
       "labels": {
-        "clab-mgmt-net-bridge": "br-2730b2367a37",
+        "clab-mgmt-net-bridge": "br-b781bcffe3e1",
         "clab-node-group": "",
         "clab-node-kind": "linux",
-        "clab-node-lab-dir": "/home/t0342978/Y11S2NSAI3/clab-network-ctf/qc-admin2",
+        "clab-node-lab-dir": "/home/marco/git-repos-and-packages/mine/Y11S2NSAI3/clab-network-ctf/qc-admin2",
         "clab-node-name": "qc-admin2",
         "clab-node-type": "",
-        "clab-owner": "t0342978",
-        "clab-topo-file": "/home/t0342978/Y11S2NSAI3/v3/Topologies/v3.yaml",
+        "clab-owner": "marco",
+        "clab-topo-file": "/home/marco/git-repos-and-packages/mine/Y11S2NSAI3/v5/Topologies/v5.yaml",
         "containerlab": "network-ctf",
         "graph-icon": "host",
         "graph-layer": "2"
@@ -190,30 +126,30 @@
       ]
     },
     "qc-client1": {
-      "index": "5",
+      "index": "3",
       "shortname": "qc-client1",
       "longname": "clab-network-ctf-qc-client1",
       "fqdn": "qc-client1.network-ctf.io",
       "group": "",
-      "labdir": "/home/t0342978/Y11S2NSAI3/clab-network-ctf/qc-client1",
+      "labdir": "/home/marco/git-repos-and-packages/mine/Y11S2NSAI3/clab-network-ctf/qc-client1",
       "kind": "linux",
       "image": "alpine:latest",
       "mgmt-net": "",
       "mgmt-intf": "",
-      "mgmt-ipv4-address": "172.20.20.4",
+      "mgmt-ipv4-address": "172.20.20.3",
       "mgmt-ipv4-prefix-length": 24,
-      "mgmt-ipv6-address": "2001:172:20:20::4",
+      "mgmt-ipv6-address": "3fff:172:20:20::3",
       "mgmt-ipv6-prefix-length": 64,
       "mac-address": "",
       "labels": {
-        "clab-mgmt-net-bridge": "br-2730b2367a37",
+        "clab-mgmt-net-bridge": "br-b781bcffe3e1",
         "clab-node-group": "",
         "clab-node-kind": "linux",
-        "clab-node-lab-dir": "/home/t0342978/Y11S2NSAI3/clab-network-ctf/qc-client1",
+        "clab-node-lab-dir": "/home/marco/git-repos-and-packages/mine/Y11S2NSAI3/clab-network-ctf/qc-client1",
         "clab-node-name": "qc-client1",
         "clab-node-type": "",
-        "clab-owner": "t0342978",
-        "clab-topo-file": "/home/t0342978/Y11S2NSAI3/v3/Topologies/v3.yaml",
+        "clab-owner": "marco",
+        "clab-topo-file": "/home/marco/git-repos-and-packages/mine/Y11S2NSAI3/v5/Topologies/v5.yaml",
         "containerlab": "network-ctf",
         "graph-icon": "host",
         "graph-layer": "2"
@@ -222,30 +158,30 @@
       ]
     },
     "qc-client2": {
-      "index": "6",
+      "index": "4",
       "shortname": "qc-client2",
       "longname": "clab-network-ctf-qc-client2",
       "fqdn": "qc-client2.network-ctf.io",
       "group": "",
-      "labdir": "/home/t0342978/Y11S2NSAI3/clab-network-ctf/qc-client2",
+      "labdir": "/home/marco/git-repos-and-packages/mine/Y11S2NSAI3/clab-network-ctf/qc-client2",
       "kind": "linux",
       "image": "alpine:latest",
       "mgmt-net": "",
       "mgmt-intf": "",
-      "mgmt-ipv4-address": "172.20.20.5",
+      "mgmt-ipv4-address": "172.20.20.2",
       "mgmt-ipv4-prefix-length": 24,
-      "mgmt-ipv6-address": "2001:172:20:20::5",
+      "mgmt-ipv6-address": "3fff:172:20:20::2",
       "mgmt-ipv6-prefix-length": 64,
       "mac-address": "",
       "labels": {
-        "clab-mgmt-net-bridge": "br-2730b2367a37",
+        "clab-mgmt-net-bridge": "br-b781bcffe3e1",
         "clab-node-group": "",
         "clab-node-kind": "linux",
-        "clab-node-lab-dir": "/home/t0342978/Y11S2NSAI3/clab-network-ctf/qc-client2",
+        "clab-node-lab-dir": "/home/marco/git-repos-and-packages/mine/Y11S2NSAI3/clab-network-ctf/qc-client2",
         "clab-node-name": "qc-client2",
         "clab-node-type": "",
-        "clab-owner": "t0342978",
-        "clab-topo-file": "/home/t0342978/Y11S2NSAI3/v3/Topologies/v3.yaml",
+        "clab-owner": "marco",
+        "clab-topo-file": "/home/marco/git-repos-and-packages/mine/Y11S2NSAI3/v5/Topologies/v5.yaml",
         "containerlab": "network-ctf",
         "graph-icon": "host",
         "graph-layer": "2"
@@ -254,30 +190,30 @@
       ]
     },
     "quickchat": {
-      "index": "7",
+      "index": "5",
       "shortname": "quickchat",
       "longname": "clab-network-ctf-quickchat",
       "fqdn": "quickchat.network-ctf.io",
       "group": "",
-      "labdir": "/home/t0342978/Y11S2NSAI3/clab-network-ctf/quickchat",
+      "labdir": "/home/marco/git-repos-and-packages/mine/Y11S2NSAI3/clab-network-ctf/quickchat",
       "kind": "linux",
       "image": "ubuntu:latest",
       "mgmt-net": "",
       "mgmt-intf": "",
-      "mgmt-ipv4-address": "172.20.20.7",
+      "mgmt-ipv4-address": "172.20.20.5",
       "mgmt-ipv4-prefix-length": 24,
-      "mgmt-ipv6-address": "2001:172:20:20::7",
+      "mgmt-ipv6-address": "3fff:172:20:20::5",
       "mgmt-ipv6-prefix-length": 64,
       "mac-address": "",
       "labels": {
-        "clab-mgmt-net-bridge": "br-2730b2367a37",
+        "clab-mgmt-net-bridge": "br-b781bcffe3e1",
         "clab-node-group": "",
         "clab-node-kind": "linux",
-        "clab-node-lab-dir": "/home/t0342978/Y11S2NSAI3/clab-network-ctf/quickchat",
+        "clab-node-lab-dir": "/home/marco/git-repos-and-packages/mine/Y11S2NSAI3/clab-network-ctf/quickchat",
         "clab-node-name": "quickchat",
         "clab-node-type": "",
-        "clab-owner": "t0342978",
-        "clab-topo-file": "/home/t0342978/Y11S2NSAI3/v3/Topologies/v3.yaml",
+        "clab-owner": "marco",
+        "clab-topo-file": "/home/marco/git-repos-and-packages/mine/Y11S2NSAI3/v5/Topologies/v5.yaml",
         "containerlab": "network-ctf",
         "graph-icon": "server",
         "graph-layer": "2"
@@ -286,30 +222,30 @@
       ]
     },
     "r1": {
-      "index": "8",
+      "index": "6",
       "shortname": "r1",
       "longname": "clab-network-ctf-r1",
       "fqdn": "r1.network-ctf.io",
       "group": "",
-      "labdir": "/home/t0342978/Y11S2NSAI3/clab-network-ctf/r1",
+      "labdir": "/home/marco/git-repos-and-packages/mine/Y11S2NSAI3/clab-network-ctf/r1",
       "kind": "linux",
       "image": "frrouting/frr:latest",
       "mgmt-net": "",
       "mgmt-intf": "",
-      "mgmt-ipv4-address": "172.20.20.2",
+      "mgmt-ipv4-address": "172.20.20.7",
       "mgmt-ipv4-prefix-length": 24,
-      "mgmt-ipv6-address": "2001:172:20:20::2",
+      "mgmt-ipv6-address": "3fff:172:20:20::7",
       "mgmt-ipv6-prefix-length": 64,
       "mac-address": "",
       "labels": {
-        "clab-mgmt-net-bridge": "br-2730b2367a37",
+        "clab-mgmt-net-bridge": "br-b781bcffe3e1",
         "clab-node-group": "",
         "clab-node-kind": "linux",
-        "clab-node-lab-dir": "/home/t0342978/Y11S2NSAI3/clab-network-ctf/r1",
+        "clab-node-lab-dir": "/home/marco/git-repos-and-packages/mine/Y11S2NSAI3/clab-network-ctf/r1",
         "clab-node-name": "r1",
         "clab-node-type": "",
-        "clab-owner": "t0342978",
-        "clab-topo-file": "/home/t0342978/Y11S2NSAI3/v3/Topologies/v3.yaml",
+        "clab-owner": "marco",
+        "clab-topo-file": "/home/marco/git-repos-and-packages/mine/Y11S2NSAI3/v5/Topologies/v5.yaml",
         "containerlab": "network-ctf",
         "graph-icon": "router",
         "graph-layer": "1"
@@ -317,63 +253,31 @@
       "port-bindings": [
       ]
     },
-    "server-switch": {
-      "index": "9",
-      "shortname": "server-switch",
-      "longname": "clab-network-ctf-server-switch",
-      "fqdn": "server-switch.network-ctf.io",
-      "group": "",
-      "labdir": "/home/t0342978/Y11S2NSAI3/clab-network-ctf/server-switch",
-      "kind": "linux",
-      "image": "alpine",
-      "mgmt-net": "",
-      "mgmt-intf": "",
-      "mgmt-ipv4-address": "172.20.20.9",
-      "mgmt-ipv4-prefix-length": 24,
-      "mgmt-ipv6-address": "2001:172:20:20::9",
-      "mgmt-ipv6-prefix-length": 64,
-      "mac-address": "",
-      "labels": {
-        "clab-mgmt-net-bridge": "br-2730b2367a37",
-        "clab-node-group": "",
-        "clab-node-kind": "linux",
-        "clab-node-lab-dir": "/home/t0342978/Y11S2NSAI3/clab-network-ctf/server-switch",
-        "clab-node-name": "server-switch",
-        "clab-node-type": "",
-        "clab-owner": "t0342978",
-        "clab-topo-file": "/home/t0342978/Y11S2NSAI3/v3/Topologies/v3.yaml",
-        "containerlab": "network-ctf",
-        "graph-icon": "switch",
-        "graph-layer": "1"
-      },
-      "port-bindings": [
-      ]
-    },
     "webserver": {
-      "index": "10",
+      "index": "7",
       "shortname": "webserver",
       "longname": "clab-network-ctf-webserver",
       "fqdn": "webserver.network-ctf.io",
       "group": "",
-      "labdir": "/home/t0342978/Y11S2NSAI3/clab-network-ctf/webserver",
+      "labdir": "/home/marco/git-repos-and-packages/mine/Y11S2NSAI3/clab-network-ctf/webserver",
       "kind": "linux",
       "image": "alpine:latest",
       "mgmt-net": "",
       "mgmt-intf": "",
-      "mgmt-ipv4-address": "172.20.20.6",
+      "mgmt-ipv4-address": "172.20.20.9",
       "mgmt-ipv4-prefix-length": 24,
-      "mgmt-ipv6-address": "2001:172:20:20::6",
+      "mgmt-ipv6-address": "3fff:172:20:20::9",
       "mgmt-ipv6-prefix-length": 64,
       "mac-address": "",
       "labels": {
-        "clab-mgmt-net-bridge": "br-2730b2367a37",
+        "clab-mgmt-net-bridge": "br-b781bcffe3e1",
         "clab-node-group": "",
         "clab-node-kind": "linux",
-        "clab-node-lab-dir": "/home/t0342978/Y11S2NSAI3/clab-network-ctf/webserver",
+        "clab-node-lab-dir": "/home/marco/git-repos-and-packages/mine/Y11S2NSAI3/clab-network-ctf/webserver",
         "clab-node-name": "webserver",
         "clab-node-type": "",
-        "clab-owner": "t0342978",
-        "clab-topo-file": "/home/t0342978/Y11S2NSAI3/v3/Topologies/v3.yaml",
+        "clab-owner": "marco",
+        "clab-topo-file": "/home/marco/git-repos-and-packages/mine/Y11S2NSAI3/v5/Topologies/v5.yaml",
         "containerlab": "network-ctf",
         "graph-icon": "server",
         "graph-layer": "2"
@@ -387,139 +291,97 @@
       "a": {
         "node": "r1",
         "interface": "eth1",
-        "mac": "aa:c1:ab:cd:18:8e",
-        "peer": "z"
-      },
-      "z": {
-        "node": "server-switch",
-        "interface": "eth1",
-        "mac": "aa:c1:ab:2f:89:4b",
-        "peer": "a"
-      }
-    },
-    {
-      "a": {
-        "node": "r1",
-        "interface": "eth2",
-        "mac": "aa:c1:ab:08:64:c2",
-        "peer": "z"
-      },
-      "z": {
-        "node": "admin-switch",
-        "interface": "eth1",
-        "mac": "aa:c1:ab:eb:32:cc",
-        "peer": "a"
-      }
-    },
-    {
-      "a": {
-        "node": "r1",
-        "interface": "eth3",
-        "mac": "aa:c1:ab:55:e4:f9",
-        "peer": "z"
-      },
-      "z": {
-        "node": "client-switch",
-        "interface": "eth1",
-        "mac": "aa:c1:ab:69:61:91",
-        "peer": "a"
-      }
-    },
-    {
-      "a": {
-        "node": "server-switch",
-        "interface": "eth2",
-        "mac": "aa:c1:ab:df:6b:d3",
+        "mac": "aa:c1:ab:a9:97:85",
         "peer": "z"
       },
       "z": {
         "node": "quickchat",
         "interface": "eth1",
-        "mac": "aa:c1:ab:d2:15:c3",
+        "mac": "aa:c1:ab:a8:91:c8",
         "peer": "a"
       }
     },
     {
       "a": {
-        "node": "server-switch",
-        "interface": "eth3",
-        "mac": "aa:c1:ab:c0:c6:d4",
+        "node": "r1",
+        "interface": "eth2",
+        "mac": "aa:c1:ab:47:ec:bd",
         "peer": "z"
       },
       "z": {
         "node": "webserver",
         "interface": "eth1",
-        "mac": "aa:c1:ab:f7:18:11",
+        "mac": "aa:c1:ab:e9:32:78",
         "peer": "a"
       }
     },
     {
       "a": {
-        "node": "admin-switch",
-        "interface": "eth2",
-        "mac": "aa:c1:ab:c7:72:ba",
+        "node": "r1",
+        "interface": "eth3",
+        "mac": "aa:c1:ab:c5:f4:eb",
         "peer": "z"
       },
       "z": {
         "node": "qc-admin1",
         "interface": "eth1",
-        "mac": "aa:c1:ab:83:53:ab",
+        "mac": "aa:c1:ab:12:e6:68",
         "peer": "a"
       }
     },
     {
       "a": {
-        "node": "admin-switch",
-        "interface": "eth3",
-        "mac": "aa:c1:ab:07:98:aa",
+        "node": "r1",
+        "interface": "eth4",
+        "mac": "aa:c1:ab:33:12:5d",
         "peer": "z"
       },
       "z": {
         "node": "qc-admin2",
         "interface": "eth1",
-        "mac": "aa:c1:ab:19:f0:a6",
+        "mac": "aa:c1:ab:57:b5:b0",
         "peer": "a"
       }
     },
     {
       "a": {
-        "node": "client-switch",
-        "interface": "eth2",
-        "mac": "aa:c1:ab:08:47:55",
+        "node": "r1",
+        "interface": "eth5",
+        "mac": "aa:c1:ab:15:0b:58",
         "peer": "z"
       },
       "z": {
         "node": "qc-client1",
         "interface": "eth1",
-        "mac": "aa:c1:ab:54:3f:bd",
+        "mac": "aa:c1:ab:95:c0:8b",
         "peer": "a"
       }
     },
     {
       "a": {
-        "node": "client-switch",
-        "interface": "eth3",
-        "mac": "aa:c1:ab:34:82:fd",
+        "node": "r1",
+        "interface": "eth6",
+        "mac": "aa:c1:ab:bf:45:52",
         "peer": "z"
       },
       "z": {
         "node": "qc-client2",
         "interface": "eth1",
-        "mac": "aa:c1:ab:d1:ab:30",
+        "mac": "aa:c1:ab:11:f7:78",
         "peer": "a"
       }
     },
     {
       "a": {
-        "node": "client-switch",
-        "interface": "eth4",
-        "mac": "aa:c1:ab:d1:e2:ac",
+        "node": "r1",
+        "interface": "eth7",
+        "mac": "aa:c1:ab:3f:e6:45",
         "peer": "z"
       },
       "z": {
         "node": "attack-box",
         "interface": "eth1",
-        "mac": "aa:c1:ab:dd:6d:e3",
+        "mac": "aa:c1:ab:11:f5:b7",
         "peer": "a"
       }
     }

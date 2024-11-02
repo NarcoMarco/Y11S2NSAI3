@@ -1,0 +1,2 @@
+Put secret flags
+- If you send a certain telnet message to qc-client1 or 2
