@@ -50,3 +50,6 @@ sleep 10
 sh /scripts/telnet/telnet-recieve.sh &
 
 exit 0
+
+sudo chown root:root /host/path/to/scripts
+sudo chmod 700 /host/path/to/scripts

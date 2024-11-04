@@ -39,3 +39,6 @@ rc-update add sshd
 rc-status -a
 
 cp /scripts/brute-force/10k-most-common.txt /home/hackerman/
+
+sudo chown root:root /host/path/to/scripts
+sudo chmod 700 /host/path/to/scripts
