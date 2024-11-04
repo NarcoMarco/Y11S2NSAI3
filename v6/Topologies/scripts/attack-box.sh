@@ -37,3 +37,5 @@ rc-service sshd start
 rc-update add sshd
 
 rc-status -a
+
+cp /scripts/brute-force/10k-most-common.txt /home/hackerman/

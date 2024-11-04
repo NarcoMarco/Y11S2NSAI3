@@ -8,7 +8,7 @@ topology:
         graph-icon: router
       image: frrouting/frr:latest
       binds:
-        - ./scripts:/scripts
+        - ./scripts:/scripts:ro
       exec:
         - sh /scripts/r1.sh
 
@@ -21,7 +21,7 @@ topology:
       ports:
         - "2222:22/tcp"
       binds:
-        - ./scripts:/scripts
+        - ./scripts:/scripts:ro
       exec:
         - sh /scripts/attack-box.sh
 
@@ -32,7 +32,7 @@ topology:
         graph-icon: server
       image: alpine:latest
       binds:
-        - ./scripts:/scripts
+        - ./scripts:/scripts:ro
       ports:
         - "80:5000"
       exec:
@@ -45,7 +45,7 @@ topology:
         graph-icon: host
       image: alpine:latest
       binds:
-        - ./scripts:/scripts
+        - ./scripts:/scripts:ro
 
     qc-admin2:
       kind: linux
@@ -54,7 +54,7 @@ topology:
         graph-icon: host
       image: alpine:latest
       binds:
-        - ./scripts:/scripts
+        - ./scripts:/scripts:ro
 
     qc-client1:
       kind: linux
@@ -65,7 +65,7 @@ topology:
       exec:
         - sh /scripts/qc-client1.sh
       binds:
-        - ./scripts:/scripts
+        - ./scripts:/scripts:ro
 
     qc-client2:
       kind: linux
@@ -76,7 +76,7 @@ topology:
       exec:
         - sh /scripts/qc-client2.sh
       binds:
-        - ./scripts:/scripts
+        - ./scripts:/scripts:ro
 
 
     quickchat:
@@ -88,7 +88,7 @@ topology:
       exec:
         - sh /scripts/quickchat.sh
       binds:
-        - ./scripts:/scripts
+        - ./scripts:/scripts:ro
         
   links:
     # Connect router to servers
