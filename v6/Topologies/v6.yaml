@@ -64,7 +64,6 @@ topology:
       image: alpine:latest
       exec:
         - sh /scripts/qc-client1.sh
-        # - sh /scripts/telnet/telnet-pword-message.sh &
       binds:
         - ./scripts:/scripts
 
@@ -76,7 +75,6 @@ topology:
       image: alpine:latest
       exec:
         - sh /scripts/qc-client2.sh
-        # - sh /scripts/telnet/telnet-recieve.sh &
       binds:
         - ./scripts:/scripts
 
