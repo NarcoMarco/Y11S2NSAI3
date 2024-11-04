@@ -1,0 +1,105 @@
+name: network-ctf
+topology:
+  nodes:
+    r1:
+      kind: linux
+      labels:
+        graph-layer: 1
+        graph-icon: router
+      image: frrouting/frr:latest
+      binds:
+        - ./scripts:/scripts
+      exec:
+        - sh /scripts/r1.sh
+
+    attack-box:
+      kind: linux
+      labels:
+        graph-layer: 2
+        graph-icon: host
+      image: alpine:latest
+      ports:
+        - "2222:22/tcp"
+      binds:
+        - ./scripts:/scripts
+      exec:
+        - sh /scripts/attack-box.sh
+
+    webserver:
+      kind: linux
+      labels:
+        graph-layer: 2
+        graph-icon: server
+      image: alpine:latest
+      binds:
+        - ./scripts:/scripts
+      ports:
+        - "80:5000"
+      exec:
+        - sh /scripts/webserver.sh
+
+    qc-admin1:
+      kind: linux
+      labels:
+        graph-layer: 2
+        graph-icon: host
+      image: alpine:latest
+      binds:
+        - ./scripts:/scripts
+
+    qc-admin2:
+      kind: linux
+      labels:
+        graph-layer: 2
+        graph-icon: host
+      image: alpine:latest
+      binds:
+        - ./scripts:/scripts
+
+    qc-client1:
+      kind: linux
+      labels:
+        graph-layer: 2
+        graph-icon: host
+      image: alpine:latest
+      exec:
+        - sh /scripts/qc-client1.sh
+        # - sh /scripts/telnet/telnet-pword-message.sh &
+      binds:
+        - ./scripts:/scripts
+
+    qc-client2:
+      kind: linux
+      labels:
+        graph-layer: 2
+        graph-icon: host
+      image: alpine:latest
+      exec:
+        - sh /scripts/qc-client2.sh
+        # - sh /scripts/telnet/telnet-recieve.sh &
+      binds:
+        - ./scripts:/scripts
+
+
+    quickchat:
+      kind: linux
+      labels:
+        graph-layer: 2
+        graph-icon: server
+      image: ubuntu:latest
+      exec:
+        - sh /scripts/quickchat.sh
+      binds:
+        - ./scripts:/scripts
+        
+  links:
+    # Connect router to servers
+    - endpoints: ['r1:eth1', 'quickchat:eth1']
+    - endpoints: ['r1:eth2', 'webserver:eth1']
+    # Connect router to admins
+    - endpoints: ['r1:eth3', 'qc-admin1:eth1']
+    - endpoints: ['r1:eth4', 'qc-admin2:eth1']
+    # Connect clients and attacker to router
+    - endpoints: ['r1:eth5', 'qc-client1:eth1']
+    - endpoints: ['r1:eth6', 'qc-client2:eth1']
+    - endpoints: ['r1:eth7', 'attack-box:eth1']

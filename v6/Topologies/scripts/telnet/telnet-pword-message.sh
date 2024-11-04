@@ -18,11 +18,15 @@ send_message() {
         while true; do
             echo "Hey I wonder what this password could be? NotS3cuR3P@ssW0rd"
             sleep 0.5
-            echo "testTwo"
+            echo "John"
             sleep 5  # Adjust delay as needed
         done
-    ) | telnet "$HOST" "$PORT"
+    ) | telnet "$HOST" "$PORT" >> dev/null
 }
 
 # Run the function
-send_message
+while true; do
+    send_message
+    # If telnet exits, wait before retrying
+    sleep 5
+done

@@ -4,25 +4,26 @@ HOST="192.168.143.10"
 PORT="8080"
 
 # Function to send messages via telnet
-send_message() {
+receive_message() {
     (   
         sleep 1
         # Sending initial set of messages
         echo "register"
         sleep 1
-        echo "clientOne"
+        echo "John"
         sleep 1
         echo "SuperSecretPassword"
         
         # Loop to repeatedly send a message indefinitely
         while true; do
-            echo "Hey I wonder what this password could be? NotS3cuR3P@ssW0rd"
-            sleep 0.5
-            echo "testTwo"
             sleep 5  # Adjust delay as needed
         done
-    ) | telnet "$HOST" "$PORT"
+    ) | telnet "$HOST" "$PORT" >> /dev/null
 }
 
 # Run the function
-send_message
+while true; do
+    receive_message
+    # If telnet exits, wait before retrying
+    sleep 5
+done
