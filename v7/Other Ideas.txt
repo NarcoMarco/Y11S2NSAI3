@@ -1,0 +1,4 @@
+Put secret flags
+- If you send a certain telnet message to qc-client1 or 2
+
+Add a password to the steg file, and make the attacker write a script to crack it

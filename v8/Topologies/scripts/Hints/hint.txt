@@ -1,0 +1,9 @@
+You have been assigned the task of gaining access to a webserver accessible through your browser.
+This webserver will be accessible through the same IP address that you used to connect to this machine.
+All we know is what subnets the network has, and that you will need to use hydra, lftp and termshark.
+Here are the known subnets:
+Clients: 192.168.0.0/24
+Servers: 192.168.143.0/24
+Admins: 10.13.37.0/24
+
+There is a client on the clients subnet called John. He has ssh access enabled.
