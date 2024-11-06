@@ -8,18 +8,18 @@ all:
     linux:
       hosts:
         clab-network-ctf-attack-box:
-          ansible_host: 172.20.20.2
-        clab-network-ctf-qc-admin1:
-          ansible_host: 172.20.20.3
-        clab-network-ctf-qc-admin2:
-          ansible_host: 172.20.20.5
-        clab-network-ctf-qc-client1:
-          ansible_host: 172.20.20.7
-        clab-network-ctf-qc-client2:
           ansible_host: 172.20.20.4
-        clab-network-ctf-quickchat:
+        clab-network-ctf-qc-admin1:
+          ansible_host: 172.20.20.2
+        clab-network-ctf-qc-admin2:
           ansible_host: 172.20.20.8
-        clab-network-ctf-r1:
+        clab-network-ctf-qc-client1:
+          ansible_host: 172.20.20.5
+        clab-network-ctf-qc-client2:
           ansible_host: 172.20.20.9
-        clab-network-ctf-webserver:
+        clab-network-ctf-quickchat:
+          ansible_host: 172.20.20.7
+        clab-network-ctf-r1:
           ansible_host: 172.20.20.6
+        clab-network-ctf-webserver:
+          ansible_host: 172.20.20.3

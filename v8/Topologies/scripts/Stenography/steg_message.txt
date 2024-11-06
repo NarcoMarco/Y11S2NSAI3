@@ -1,1 +1,1 @@
-Here is the very secure encryption key: InsecureKey@123
+Here is the very secure encryption key: InsecureKey@123!

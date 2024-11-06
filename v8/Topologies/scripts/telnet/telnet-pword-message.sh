@@ -16,7 +16,7 @@ send_message() {
         
         # Loop to repeatedly send a message indefinitely
         while true; do
-            echo "Hey I wonder what this password could be? NotS3cuR3P@ssW0rd"
+            echo "YZGDAJlNeeyWsQOg/RU7Mif+WtguDe8fkJE0vPyruOpPoWuqjb/SlE/HQ+DIYjiUE3p82cB7rujxCdf/O74u/w=="
             sleep 0.5
             echo "John"
             sleep 5  # Adjust delay as needed
