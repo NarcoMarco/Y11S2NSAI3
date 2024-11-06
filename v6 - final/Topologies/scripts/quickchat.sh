@@ -1,5 +1,7 @@
 #!/usr/bin/bash
 
+export DEBIAN_FRONTEND=noninteractive
+
 apt update
 
 apt install iproute2 sqlite3 -y
