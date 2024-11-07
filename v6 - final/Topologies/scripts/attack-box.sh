@@ -22,7 +22,7 @@ echo 'hackerman:hackerman' | chpasswd
 adduser hackerman wireshark
 
 # Add hint to hackerman home directory
-cp /scripts/hints/hint.txt /home/hackerman/hint.txt
+cp /scripts/Hints/hint.txt /home/hackerman/hint.txt
 
 # Configure ssh
 # Ensure OpenRC directories exist
