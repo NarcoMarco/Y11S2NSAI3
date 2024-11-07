@@ -6,7 +6,7 @@ PORT="8080"
 # Function to send messages via telnet
 receive_message() {
     (   
-        sleep 1
+        sleep 2
         # Sending initial set of messages
         echo "register"
         sleep 1
@@ -16,6 +16,9 @@ receive_message() {
         
         # Loop to repeatedly send a message indefinitely
         while true; do
+            echo "Thankyou"
+            sleep 0.1
+            echo "clientOne"
             sleep 5  # Adjust delay as needed
         done
     ) | telnet "$HOST" "$PORT" >> /dev/null

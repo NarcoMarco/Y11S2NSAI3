@@ -1,6 +1,9 @@
 # Y11S2NSAI3
 2024 Semester 2 ai4 Networking and Security
 
+# Notes:
+Containerlab will never give confirmation that it has finished building. This is because of an issue with the quickchat server where it crashes when scanned with nmap, and as such needs to be restarted. This script does not stay running unless it is run in the foreground with nohup, which doesn't allow containerlab to realise it is finished. 
+
 # Challenge Overview
 You have been given access to one machine on a network. Your goal is to gain access to a webserver accessible from your browser. You will use tools such as hydra and termshark in order to do this.
 

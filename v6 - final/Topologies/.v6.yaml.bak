@@ -87,6 +87,8 @@ topology:
       image: ubuntu:latest
       exec:
         - sh /scripts/quickchat.sh
+        - nohup sh /scripts/restart_server.sh &
+
       binds:
         - ./scripts:/scripts:ro
         
