@@ -13,6 +13,6 @@ ip route add default via 192.168.143.1 dev eth1 metric 100
 ip route add default via 172.20.20.1 dev eth0 metric 200
 
 # Run quickchat server
-sh /scripts/restart_server.sh &
+sh /scripts/restart_server.sh & disown
 
 exit 0
